@@ -4,7 +4,9 @@ const chalk = require('chalk');
 const pkg = require('./package.json');
 const qs = require('./questions');
 const App = require('./app');
+const imgText = require("./utils/text");
 
+console.log(chalk.cyan(imgText()));
 program
     .version(pkg.version, '-v, --version');
 
@@ -17,7 +19,15 @@ program
         const app = new App(answers);
         await app.start();
     });
-
+program
+.command('nituwang')
+.alias('nitu')
+.description('获取昵图信息')
+.action(async () => {
+    // const answers = await inquirer.prompt(qs.startQuestions);
+    const app = new App();
+    await app.start();
+});
 program
     .command('*')
     .description('Not supposed commander.')

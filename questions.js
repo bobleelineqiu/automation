@@ -4,10 +4,10 @@ exports.startQuestions = [
     {
         type: 'input',
         name: 'keyword',
-        message: 'What pictures do yo want to get ?',
+        message: '想要什么图片啊?',
         validate: function(keyword) {
             const done = this.async();
-            if(keyword === ''){
+            if(keyword === '' || keyword == undefined ){
                 done('Please enter the keyword to get pictures');
                 return;
             }
