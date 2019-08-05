@@ -7,11 +7,13 @@ exports.startQuestions = [
         message: '想要什么图片啊?',
         validate: function(keyword) {
             const done = this.async();
-            if(keyword === '' || keyword == undefined ){
+            if (keyword === '') {
+                // 用完成的回调函数传递返回值。
                 done('Please enter the keyword to get pictures');
                 return;
-            }
-            done(null, true);
+              }
+              // 用完成的回调函数传递返回值。
+              done(null, true);
         }
     }
 ];

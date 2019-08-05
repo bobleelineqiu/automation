@@ -12,7 +12,7 @@ const cheerio = require('cheerio')
 const url2Img = async (url, dir, callback) => {
   const mod = /^https:/.test(url) ? https : http;
   const ext = path.extname(url);
-  const file = path.join(dir, `${Date.now()}${Math.floor(Math.random()*999999999)}${ext}`);
+  const file = path.join(dir, `${Math.floor(Math.random()*999999999)}${ext}`);
   let header_pc = [
 
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60",
@@ -126,7 +126,7 @@ const base642Img = async function(base64Str, dir) {
   const matches = base64Str.match(/^data:(.+?);base64,(.+)$/);
   try {
     const ext = matches[1].split("/")[1].replace("jpeg", "jpg");
-    const file = path.join(dir, `${Date.now()}${Math.floor(Math.random()*999999999)}.${ext}`);
+    const file = path.join(dir, `${Math.floor(Math.random()*999999999)}.${ext}`);
 
     await fs.writeFile(file, matches[2], "base64", err => {
       err ? console.log("write file error: ", err) : null;
